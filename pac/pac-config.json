@@ -1,0 +1,21 @@
+{
+    "file"          : "proxy.pac",
+    "proxy"         : "SOCKS5 127.0.0.1:7070; SOCKS 127.0.0.1:7070",
+    "localDomains"  : [
+        "mailtech.local",
+        "mailtech.cn",
+        "coremail.cn",
+        "icoremail.net",
+        "rd.mt"
+    ],
+    "normalDomains" : [
+        "v2ex.com"
+    ],
+    "walledDomains" : [
+        "apple.com"
+    ],
+    "fakeIps"       : [
+        "211.98.70.194",
+        "211.98.70.195"
+    ]
+}

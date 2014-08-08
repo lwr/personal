@@ -1,0 +1,44 @@
+! clowwindy's buildin rules !
+google.com
+google.co.jp
+google.co.hk
+github.com
+wikipedia.org
+
+! missing
+google.com.my
+googleapis.com
+goo.gl
+
+! rules for me !
+t.co
+fb.me
+bit.ly
+sourceforge.net
+nytimes.com
+jetbrains.com
+intellij.net
+wikipedia.org
+wikimedia.org
+tumblr.com
+fqrouter.com
+feedly.com
+dropbox.com
+mshcdn.com
+bootply.com
+feedsportal.com
+twimg.com
+cdninstagram.com
+playpcesor.com
+blogblog.com
+shadowsocks.com
+amazonaws.com
+line.me
+line-apps.com
+naver.jp
+! apple.com
+akadns.net
+flickr.com
+flic.kr
+yahoodns.net
+
