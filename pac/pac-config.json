@@ -12,6 +12,7 @@
         "v2ex.com"
     ],
     "walledDomains" : [
+        "imgur.com",
         "apple.com"
     ],
     "fakeIps"       : [

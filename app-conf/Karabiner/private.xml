@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<root>
+  <!-- 设备自定义 -->
+  <!-- (for Varmilo VB660M)
+    Bluetooth Keyboard (Unknown)
+    Vendor ID:0x1345
+    Product ID:0x1005
+    Location ID:0x5160d9c
+
+    USB Device (?????)
+    Vendor ID:0x1345
+    Product ID:0x7103
+    Location ID:0x14200000
+  -->
+  <devicevendordef>
+    <vendorname>VARMILO</vendorname>
+    <vendorid>0x1345</vendorid>
+  </devicevendordef>
+  <deviceproductdef>
+    <productname>VB660M</productname>
+    <productid>0x1005</productid>
+  </deviceproductdef>
+  <deviceproductdef>
+    <productname>VB660M-USB</productname>
+    <productid>0x7103</productid>
+  </deviceproductdef>
+
+  <!-- 应用程序定义 -->
+  <appdef>
+    <appname>TweetBot</appname>
+    <equal>com.tapbots.TweetbotMac</equal>
+  </appdef>
+  <appdef>
+    <appname>IDEA</appname>
+    <equal>com.jetbrains.intellij</equal>
+  </appdef>
+
+  <replacementdef>
+    <replacementname>VIM_EMU_ONLY_APPS</replacementname>
+    <replacementvalue></replacementvalue>
+    <replacementname>VIM_EMU_IGNORE_APPS</replacementname>
+    <replacementvalue>IDEA</replacementvalue>
+  </replacementdef>
+
+  <!-- 我的触发器 -->
+  <item>
+    <name>自定义</name>
+    <item>
+      <name>TweetBot: [H ←], [L →], [空格或 I 查看媒体内容]</appendix>
+      <identifier>my.remap.TweetBot.hotKeys</identifier>
+      <block>
+        <only>TweetBot</only>
+        <uielementrole_not>AXTextArea, AXTextField, AXCheckBox</uielementrole_not>
+        <autogen>__KeyToKey__ KeyCode::H, ModifierFlag::NONE, KeyCode::CURSOR_LEFT</autogen>
+        <autogen>__KeyToKey__ KeyCode::L, ModifierFlag::NONE, KeyCode::CURSOR_RIGHT</autogen>
+        <autogen>__KeyToKey__ KeyCode::F, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::PAGEDOWN</autogen>
+        <autogen>__KeyToKey__ KeyCode::B, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::PAGEUP</autogen>
+        <autogen>__KeyToKey__
+            KeyCode::I,
+            KeyCode::L, ModifierFlag::COMMAND_L, ModifierFlag::SHIFT_L
+        </autogen>
+        <autogen>__KeyToKey__
+            KeyCode::SPACE, ModifierFlag::NONE,
+            KeyCode::L, ModifierFlag::COMMAND_L, ModifierFlag::SHIFT_L
+        </autogen>
+      </block>
+    </item>
+    <item>
+      <name>官方中文输入法: 单击 Shift_L 触发 CapsLock - 中英文切换</appendix>
+      <inputsource_only>CHINESE_SIMPLIFIED</inputsource_only>
+      <identifier>my.remap.shiftL2shiftL_capslock.CHINESE_SIMPLIFIED</identifier>
+      <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_L, KeyCode::SHIFT_L, KeyCode::CAPSLOCK</autogen>
+    </item>
+    <item>
+      <name>连击 Control 触发 CapsLock</name>
+      <identifier>my.remap.DoubleControl_CapsLock</identifier>
+      <autogen>
+        --DoublePressModifier--
+        KeyCode::CONTROL_L, KeyCode::CONTROL_L,
+        KeyCode::CAPSLOCK
+      </autogen>
+    </item>
+    <item>
+      <name>音量调节 (仿 HHKB)</name>
+      <appendix>- Option_R+A -> Volume Down</appendix>
+      <appendix>- Option_R+S -> Volume Up</appendix>
+      <appendix>- Option_R+D -> Volume Mute</appendix>
+      <identifier>my.remap.optionR_A_S_D</identifier>
+      <autogen>__KeyToKey__ KeyCode::A, ModifierFlag::OPTION_R, ConsumerKeyCode::VOLUME_DOWN</autogen>
+      <autogen>__KeyToKey__ KeyCode::S, ModifierFlag::OPTION_R, ConsumerKeyCode::VOLUME_UP</autogen>
+      <autogen>__KeyToKey__ KeyCode::D, ModifierFlag::OPTION_R, ConsumerKeyCode::VOLUME_MUTE</autogen>
+    </item>
+    <item>
+      <name>除非按下 Shift，交换 Backspace 和 Backslash '\' (VB660M 仿 HHKB)</name>
+      <identifier>my.remap.swap_backspace_baskslash</identifier>
+      <device_only>
+        DeviceVendor::VARMILO, DeviceProduct::VB660M,     DeviceLocation::ANY,
+        DeviceVendor::VARMILO, DeviceProduct::VB660M-USB, DeviceLocation::ANY
+      </device_only>
+      <autogen>__KeyToKey__ KeyCode::DELETE,    ModifierFlag::SHIFT_L, KeyCode::DELETE,    ModifierFlag::SHIFT_L</autogen>
+      <autogen>__KeyToKey__ KeyCode::DELETE,    ModifierFlag::SHIFT_R, KeyCode::DELETE,    ModifierFlag::SHIFT_R</autogen>
+      <autogen>__KeyToKey__ KeyCode::BACKSLASH, ModifierFlag::SHIFT_L, KeyCode::BACKSLASH, ModifierFlag::SHIFT_L</autogen>
+      <autogen>__KeyToKey__ KeyCode::BACKSLASH, ModifierFlag::SHIFT_R, KeyCode::BACKSLASH, ModifierFlag::SHIFT_R</autogen>
+      <autogen>__KeyToKey__ KeyCode::DELETE, KeyCode::BACKSLASH</autogen>
+      <autogen>__KeyToKey__ KeyCode::BACKSLASH, KeyCode::DELETE</autogen>
+    </item>
+    <item>
+      <name>Command+ESC to Command+` (Switch Window)</name>
+      <identifier>my.remap.cmd_escape_to_switch_window</identifier>
+      <autogen>
+        __KeyToKey__ 
+        KeyCode::ESCAPE, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | ModifierFlag::NONE, 
+        KeyCode::BACKQUOTE, ModifierFlag::COMMAND_L
+      </autogen>
+    </item>
+  </item>
+</root>

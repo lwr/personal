@@ -41,6 +41,7 @@ if [ "$1" == "bvm" ]; then
 elif [ "$1" == "mt" ]; then
     genpac "92.rd.mt:7070" /home/release/web/proxy.pac
 else
+    PATH=$PATH:/opt/local/bin
     # for local mac config - schedule at 14:10 every monday
     # 10 14 * * 1 nohup $HOME/MyWORK/personal/pac/autopac.sh
     genpac "$PROXY_LOCAL" proxy.pac
