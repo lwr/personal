@@ -37,7 +37,7 @@
 
   <replacementdef>
     <replacementname>VIM_EMU_ONLY_APPS</replacementname>
-    <replacementvalue></replacementvalue>
+    <replacementvalue/>
     <replacementname>VIM_EMU_IGNORE_APPS</replacementname>
     <replacementvalue>IDEA</replacementvalue>
   </replacementdef>
@@ -46,7 +46,7 @@
   <item>
     <name>自定义</name>
     <item>
-      <name>TweetBot: [H ←], [L →], [空格或 I 查看媒体内容]</appendix>
+      <name>TweetBot: [H ←], [L →], [空格或 I 查看媒体内容]</name>
       <identifier>my.remap.TweetBot.hotKeys</identifier>
       <block>
         <only>TweetBot</only>
@@ -66,7 +66,7 @@
       </block>
     </item>
     <item>
-      <name>官方中文输入法: 单击 Shift_L 触发 CapsLock - 中英文切换</appendix>
+      <name>官方中文输入法: 单击 Shift_L 触发 CapsLock - 中英文切换</name>
       <inputsource_only>CHINESE_SIMPLIFIED</inputsource_only>
       <identifier>my.remap.shiftL2shiftL_capslock.CHINESE_SIMPLIFIED</identifier>
       <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_L, KeyCode::SHIFT_L, KeyCode::CAPSLOCK</autogen>
