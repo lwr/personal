@@ -22,9 +22,35 @@ genpacForGfwlist() {
         --user-rule user_rule.txt
 }
 
+RUN_FLORA_PAC=
+findFloraPac() {
+    if [ -z "$RUN_FLORA_PAC" ]; then
+        RUN_FLORA_PAC=`which flora-pac`
+        local p
+        for p in \
+            "$HOME"/MyWORK/FloraPacNJS \
+            "$HOME"/flora-pac \
+            "$HOME"/node_modules/flora-pac \
+            /home/william/flora-pac \
+            /home/william/node_modules/flora-pac \
+            ; do
+            if [ -d "$p" ]; then
+                RUN_FLORA_PAC="$p/index.js"
+                break;
+            fi
+        done
+        if [ -z "$RUN_FLORA_PAC" ]; then
+            RUN_FLORA_PAC=flora-pac
+            echo "Can not find any runtime of flora-pac"
+        else
+            echo "Using $RUN_FLORA_PAC"
+        fi
+    fi
+}
+
 genpac() {
-    # node /Users/lwr/MyWORK/FloraPacNJS \
-    flora-pac --config pac-config.json \
+    findFloraPac
+    "$RUN_FLORA_PAC" --config pac-config.json \
         --file "$2" \
         --proxy "SOCKS5 $1; SOCKS $1; DIRECT"
 
@@ -33,7 +59,6 @@ genpac() {
 if [ "$1" == "bvm" ]; then
     # for bvm config - schedule at 14:10 every monday
     # 10 14 * * 1 nohup /home/solocompany/pac/autopac.sh bvm
-    PATH=$PATH:/home/solocompany/node_modules/.bin
     cd /home/solocompany
     svn up pac; npm update flora-pac
     echo "Downloading $APNIC_STATS..."
@@ -43,12 +68,10 @@ if [ "$1" == "bvm" ]; then
 elif [ "$1" == "mt" ]; then
     # for 92.rd.mt config - schedule at 14:10 every monday
     # 10 14 * * 1 nohup /home/william/pac/autopac.sh mt
-    PATH=$PATH:/home/william/node_modules/.bin
     cd /home/william
     svn up pac; npm update flora-pac
     genpac "92.rd.mt:7070" /home/release/web/proxy.pac
 else
-    PATH=$PATH:/opt/local/bin
     # for local mac config - schedule at 14:10 every monday
     # 10 14 * * 1 nohup $HOME/MyWORK/personal/pac/autopac.sh
     genpac "$PROXY_LOCAL" proxy.pac
