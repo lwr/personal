@@ -56,12 +56,12 @@
         <autogen>__KeyToKey__ KeyCode::F, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::PAGEDOWN</autogen>
         <autogen>__KeyToKey__ KeyCode::B, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::PAGEUP</autogen>
         <autogen>__KeyToKey__
-            KeyCode::I,
-            KeyCode::L, ModifierFlag::COMMAND_L, ModifierFlag::SHIFT_L
+          KeyCode::I,
+          KeyCode::L, ModifierFlag::COMMAND_L, ModifierFlag::SHIFT_L
         </autogen>
         <autogen>__KeyToKey__
-            KeyCode::SPACE, ModifierFlag::NONE,
-            KeyCode::L, ModifierFlag::COMMAND_L, ModifierFlag::SHIFT_L
+          KeyCode::SPACE, ModifierFlag::NONE,
+          KeyCode::L, ModifierFlag::COMMAND_L, ModifierFlag::SHIFT_L
         </autogen>
       </block>
     </item>
@@ -74,8 +74,7 @@
     <item>
       <name>连击 Control 触发 CapsLock</name>
       <identifier>my.remap.DoubleControl_CapsLock</identifier>
-      <autogen>
-        --DoublePressModifier--
+      <autogen>--DoublePressModifier--
         KeyCode::CONTROL_L, KeyCode::CONTROL_L,
         KeyCode::CAPSLOCK
       </autogen>
@@ -91,26 +90,37 @@
       <autogen>__KeyToKey__ KeyCode::D, ModifierFlag::OPTION_R, ConsumerKeyCode::VOLUME_MUTE</autogen>
     </item>
     <item>
-      <name>除非按下 Shift，交换 Backspace 和 Backslash '\' (VB660M 仿 HHKB)</name>
+      <name>除非按下 CMD+Shift，交换 Backspace 和 Backslash '\' (VB660M 仿 HHKB)</name>
       <identifier>my.remap.swap_backspace_baskslash</identifier>
       <device_only>
-        DeviceVendor::VARMILO, DeviceProduct::VB660M,     DeviceLocation::ANY,
+        DeviceVendor::VARMILO, DeviceProduct::VB660M, DeviceLocation::ANY,
         DeviceVendor::VARMILO, DeviceProduct::VB660M-USB, DeviceLocation::ANY
       </device_only>
-      <autogen>__KeyToKey__ KeyCode::DELETE,    ModifierFlag::SHIFT_L, KeyCode::DELETE,    ModifierFlag::SHIFT_L</autogen>
-      <autogen>__KeyToKey__ KeyCode::DELETE,    ModifierFlag::SHIFT_R, KeyCode::DELETE,    ModifierFlag::SHIFT_R</autogen>
-      <autogen>__KeyToKey__ KeyCode::BACKSLASH, ModifierFlag::SHIFT_L, KeyCode::BACKSLASH, ModifierFlag::SHIFT_L</autogen>
-      <autogen>__KeyToKey__ KeyCode::BACKSLASH, ModifierFlag::SHIFT_R, KeyCode::BACKSLASH, ModifierFlag::SHIFT_R</autogen>
+      <autogen>__KeyToKey__
+        KeyCode::DELETE, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+        KeyCode::DELETE, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L
+      </autogen>
+      <autogen>__KeyToKey__
+        KeyCode::BACKSLASH, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+        KeyCode::BACKSLASH, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L
+      </autogen>
       <autogen>__KeyToKey__ KeyCode::DELETE, KeyCode::BACKSLASH</autogen>
       <autogen>__KeyToKey__ KeyCode::BACKSLASH, KeyCode::DELETE</autogen>
     </item>
     <item>
-      <name>Command+ESC to Command+` (Switch Window)</name>
+      <name>Command+Escape to Command+` (Switching Window)</name>
       <identifier>my.remap.cmd_escape_to_switch_window</identifier>
-      <autogen>
-        __KeyToKey__ 
-        KeyCode::ESCAPE, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | ModifierFlag::NONE, 
+      <autogen>__KeyToKey__
+        KeyCode::ESCAPE, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | ModifierFlag::NONE,
         KeyCode::BACKQUOTE, ModifierFlag::COMMAND_L
+      </autogen>
+    </item>
+    <item>
+      <name>Shift+Escape to Tilde (~, more happy for HHKB)</name>
+      <identifier>my.remap.shift_escape_to_tilde</identifier>
+      <autogen>__KeyToKey__
+        KeyCode::ESCAPE, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT | ModifierFlag::NONE,
+        KeyCode::BACKQUOTE, ModifierFlag::SHIFT_L
       </autogen>
     </item>
   </item>
