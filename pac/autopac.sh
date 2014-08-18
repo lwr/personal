@@ -33,12 +33,19 @@ genpac() {
 if [ "$1" == "bvm" ]; then
     # for bvm config - schedule at 14:10 every monday
     # 10 14 * * 1 nohup /home/solocompany/pac/autopac.sh bvm
+    PATH=$PATH:/home/solocompany/node_modules/.bin
+    cd /home/solocompany
+    svn up pac; npm update flora-pac
     echo "Downloading $APNIC_STATS..."
     curl --fail "$APNIC_STATS" -O || exit
-    PATH=$PATH:/home/solocompany
     genpac "$PROXY_AZURE" /var/www/html/proxy_azure.pac
     genpac "$PROXY_BVM25" /var/www/html/proxy_bvm25.pac
 elif [ "$1" == "mt" ]; then
+    # for 92.rd.mt config - schedule at 14:10 every monday
+    # 10 14 * * 1 nohup /home/william/pac/autopac.sh mt
+    PATH=$PATH:/home/william/node_modules/.bin
+    cd /home/william
+    svn up pac; npm update flora-pac
     genpac "92.rd.mt:7070" /home/release/web/proxy.pac
 else
     PATH=$PATH:/opt/local/bin
