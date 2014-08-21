@@ -80,14 +80,18 @@
       </autogen>
     </item>
     <item>
-      <name>音量调节 (仿 HHKB)</name>
-      <appendix>- Option_R+A -> Volume Down</appendix>
-      <appendix>- Option_R+S -> Volume Up</appendix>
-      <appendix>- Option_R+D -> Volume Mute</appendix>
-      <identifier>my.remap.optionR_A_S_D</identifier>
-      <autogen>__KeyToKey__ KeyCode::A, ModifierFlag::OPTION_R, ConsumerKeyCode::VOLUME_DOWN</autogen>
-      <autogen>__KeyToKey__ KeyCode::S, ModifierFlag::OPTION_R, ConsumerKeyCode::VOLUME_UP</autogen>
-      <autogen>__KeyToKey__ KeyCode::D, ModifierFlag::OPTION_R, ConsumerKeyCode::VOLUME_MUTE</autogen>
+      <name>仿真 HHKB 使用 Option_R 触发功能键: 音量调节 / 方向键</name>
+      <appendix>● A ○ S ○ D ○ F ● ; ○ / ○ ' ○ [</appendix>
+      <appendix>● Volume Down ○ Up ○ Mute ○ Eject ● Arrow Left ○ Down ○ Right ○ Up</appendix>
+      <identifier>my.remap.optionR_FUNCTIONAL</identifier>
+      <autogen>__KeyToKey__ KeyCode::A,             ModifierFlag::OPTION_R, ConsumerKeyCode::VOLUME_DOWN</autogen>
+      <autogen>__KeyToKey__ KeyCode::S,             ModifierFlag::OPTION_R, ConsumerKeyCode::VOLUME_UP</autogen>
+      <autogen>__KeyToKey__ KeyCode::D,             ModifierFlag::OPTION_R, ConsumerKeyCode::VOLUME_MUTE</autogen>
+      <autogen>__KeyToKey__ KeyCode::F,             ModifierFlag::OPTION_R, ConsumerKeyCode::EJECT</autogen>
+      <autogen>__KeyToKey__ KeyCode::SEMICOLON,     ModifierFlag::OPTION_R, KeyCode::CURSOR_LEFT</autogen>
+      <autogen>__KeyToKey__ KeyCode::QUOTE,         ModifierFlag::OPTION_R, KeyCode::CURSOR_RIGHT</autogen>
+      <autogen>__KeyToKey__ KeyCode::BRACKET_LEFT,  ModifierFlag::OPTION_R, KeyCode::CURSOR_UP</autogen>
+      <autogen>__KeyToKey__ KeyCode::SLASH,         ModifierFlag::OPTION_R, KeyCode::CURSOR_DOWN</autogen>
     </item>
     <item>
       <name>除非按下 CMD+Shift，交换 Backspace 和 Backslash '\' (VB660M 仿 HHKB)</name>
