@@ -50,7 +50,10 @@
       <identifier>my.remap.TweetBot.hotKeys</identifier>
       <block>
         <only>TweetBot</only>
-        <uielementrole_not>AXTextArea, AXTextField, AXCheckBox</uielementrole_not>
+        <!--
+        <uielementrole_not>AXTextArea, AXTextField, AXCheckBox, AXComboBox</uielementrole_not>
+        -->
+        <uielementrole_only>AXTable</uielementrole_only>
         <autogen>__KeyToKey__ KeyCode::H, ModifierFlag::NONE, KeyCode::CURSOR_LEFT</autogen>
         <autogen>__KeyToKey__ KeyCode::L, ModifierFlag::NONE, KeyCode::CURSOR_RIGHT</autogen>
         <autogen>__KeyToKey__ KeyCode::F, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::PAGEDOWN</autogen>
