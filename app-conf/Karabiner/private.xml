@@ -53,7 +53,7 @@
         <!--
         <uielementrole_not>AXTextArea, AXTextField, AXCheckBox, AXComboBox</uielementrole_not>
         -->
-        <uielementrole_only>AXTable</uielementrole_only>
+        <uielementrole_only>AXTable, AXWindow, AXScrollArea</uielementrole_only>
         <autogen>__KeyToKey__ KeyCode::H, ModifierFlag::NONE, KeyCode::CURSOR_LEFT</autogen>
         <autogen>__KeyToKey__ KeyCode::L, ModifierFlag::NONE, KeyCode::CURSOR_RIGHT</autogen>
         <autogen>__KeyToKey__ KeyCode::F, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::PAGEDOWN</autogen>
@@ -115,7 +115,7 @@
       <autogen>__KeyToKey__ KeyCode::BACKSLASH, KeyCode::DELETE</autogen>
     </item>
     <item>
-      <name>Command+Escape to Command+` (Switching Window)</name>
+      <name>Command+Escape to Command+` (Switching Window)</nam≤e>
       <identifier>my.remap.cmd_escape_to_switch_window</identifier>
       <autogen>__KeyToKey__
         KeyCode::ESCAPE, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | ModifierFlag::NONE,
