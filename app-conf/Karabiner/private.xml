@@ -83,8 +83,9 @@
       </autogen>
     </item>
     <item>
-      <name>使用 Option_R 触发功能键: 音量调节 / 音乐播放 / 方向键</name>
+      <name>使用 Option_R 触发功能键: 亮度调节 / 音量调节 / 音乐播放 / 方向键</name>
       <appendix>● A, S, D, F ○ to ○ Volume Dow, Up, Mute, Eject (仿 HHKB)</appendix>
+      <appendix>● 1, 2, 4 ● to ● Brightness Down, Brightness Up, LaunchPad</appendix>
       <appendix>● 7, 8, 9 ● to ● Music Prev, Music Play/Pause, Music Next</appendix>
       <appendix>● 『;』, 『/』, 『'』，『[』 ● to ● Arrow Left, Down, Right, Up</appendix>
       <appendix>● =/F12 ● to ● PrintScreen</appendix>
@@ -97,6 +98,9 @@
       <autogen>__KeyToKey__ KeyCode::QUOTE,         ModifierFlag::OPTION_R, KeyCode::CURSOR_RIGHT</autogen>
       <autogen>__KeyToKey__ KeyCode::BRACKET_LEFT,  ModifierFlag::OPTION_R, KeyCode::CURSOR_UP</autogen>
       <autogen>__KeyToKey__ KeyCode::SLASH,         ModifierFlag::OPTION_R, KeyCode::CURSOR_DOWN</autogen>
+      <autogen>__KeyToKey__ KeyCode::KEY_1,         ModifierFlag::OPTION_R, ConsumerKeyCode::BRIGHTNESS_DOWN</autogen>
+      <autogen>__KeyToKey__ KeyCode::KEY_2,         ModifierFlag::OPTION_R, ConsumerKeyCode::BRIGHTNESS_UP</autogen>
+      <autogen>__KeyToKey__ KeyCode::KEY_4,         ModifierFlag::OPTION_R, KeyCode::LAUNCHPAD</autogen>
       <autogen>__KeyToKey__ KeyCode::KEY_7,         ModifierFlag::OPTION_R, ConsumerKeyCode::MUSIC_PREV</autogen>
       <autogen>__KeyToKey__ KeyCode::KEY_8,         ModifierFlag::OPTION_R, ConsumerKeyCode::MUSIC_PLAY</autogen>
       <autogen>__KeyToKey__ KeyCode::KEY_9,         ModifierFlag::OPTION_R, ConsumerKeyCode::MUSIC_NEXT</autogen>
@@ -127,6 +131,10 @@
       <autogen>__KeyToKey__
         KeyCode::ESCAPE, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | ModifierFlag::NONE,
         KeyCode::BACKQUOTE, ModifierFlag::COMMAND_L
+      </autogen>
+      <autogen>__KeyToKey__
+        KeyCode::BACKQUOTE, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
+        KeyCode::ESCAPE, ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_L
       </autogen>
     </item>
     <item>
