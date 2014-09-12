@@ -1,0 +1,16 @@
+
+.DS_Store
+
+
+# IDEA Project Files
+/.idea/copyright
+/.idea/checkstyle-idea.xml
+/.idea/compiler.xml
+/.idea/misc.xml
+/.idea/uiDesigner.xml
+/.idea/workspace.xml
+
+
+# For some IDEA plugins
+/*.xml
+
