@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Debug lwr.github.io" type="JavascriptDebugType" factoryName="JavaScript Debug" uri="http://127.0.0.1:4000/">
+    <mapping url="http://127.0.0.1:4000" local-file="$PROJECT_DIR$/../../../lwr.github.io/_site" />
+    <RunnerSettings RunnerId="JavascriptDebugRunner" />
+    <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
+    <method />
+  </configuration>
+</component>
