@@ -50,7 +50,7 @@ findFloraPac() {
 
 genpac() {
     findFloraPac
-    "$RUN_FLORA_PAC" --config pac-config.json \
+    "$RUN_FLORA_PAC" --config pac-config.ini \
         --file "$2" \
         --proxy "SOCKS5 $1; SOCKS $1"
 
