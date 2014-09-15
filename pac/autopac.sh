@@ -9,13 +9,15 @@ PROXY_BVM25=ss.solocompany.net:25
 
 cd `dirname "${BASH_SOURCE[0]}"`
 
+PATH=/opt/local/bin/:/usr/local/bin:/usr/bin:/bin
+
 genpacForGfwlist() {
     if ! [ -f /tmp/gfwlist.txt ]; then
         echo "Downloading gfwlist from $GFWLIST"
         curl --fail "$GFWLIST" --socks5-hostname "$PROXY_LOCAL" -o /tmp/gfwlist.txt || exit 1
     fi
 
-    /usr/local/bin/gfwlist2pac \
+    gfwlist2pac \
         --input /tmp/gfwlist.txt \
         --file "$2" \
         --proxy "SOCKS5 $1; SOCKS $1; DIRECT" \
