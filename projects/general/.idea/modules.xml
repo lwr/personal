@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../../../FloraPacNJS/.idea/modules/FloraPac.iml" filepath="$PROJECT_DIR$/../../../FloraPacNJS/.idea/modules/FloraPac.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../.idea-modules/FloraPac.iml" filepath="$PROJECT_DIR$/../.idea-modules/FloraPac.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../../lwr.github.io/.idea/modules/lwr.github.io.iml" filepath="$PROJECT_DIR$/../../../lwr.github.io/.idea/modules/lwr.github.io.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../personal.iml" filepath="$PROJECT_DIR$/../../personal.iml" />
     </modules>
