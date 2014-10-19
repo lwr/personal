@@ -61,8 +61,8 @@ genpac() {
 if [ "$1" == "bvm" ]; then
     # for bvm config - schedule at 14:10 every monday
     # 10 14 * * 1 nohup /home/solocompany/pac/autopac.sh bvm
-    cd /home/solocompany
-    svn up pac; npm update flora-pac
+    cd /home/solocompany/pac
+    svn up; npm update flora-pac
     echo "Downloading $APNIC_STATS..."
     curl --fail "$APNIC_STATS" -O || exit
     genpac "$PROXY_AZURE" /var/www/html/proxy_azure.pac
