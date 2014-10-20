@@ -34,6 +34,14 @@
     <appname>IDEA</appname>
     <equal>com.jetbrains.intellij</equal>
   </appdef>
+  <appdef>
+    <appname>Safari</appname>
+    <equal>com.apple.Safari</equal>
+  </appdef>
+  <appdef>
+    <appname>Mail</appname>
+    <equal>com.apple.mail</equal>
+  </appdef>
 
   <replacementdef>
     <replacementname>VIM_EMU_ONLY_APPS</replacementname>
@@ -68,6 +76,34 @@
         </autogen>
       </block>
     </item>
+    <item>
+      <name>针对特定 APP （如 Mail），使用 H J K L 控制方向</name>
+      <identifier>my.remap.H_J_K_L_Keys</identifier>
+      <block>
+        <only>Mail</only>
+        <uielementrole_only>AXTable, AXScrollArea</uielementrole_only>
+        <autogen>__KeyToKey__ KeyCode::J, ModifierFlag::NONE, KeyCode::CURSOR_DOWN</autogen>
+        <autogen>__KeyToKey__ KeyCode::K, ModifierFlag::NONE, KeyCode::CURSOR_UP</autogen>
+        <autogen>__KeyToKey__ KeyCode::H, ModifierFlag::NONE, KeyCode::CURSOR_LEFT</autogen>
+        <autogen>__KeyToKey__ KeyCode::L, ModifierFlag::NONE, KeyCode::CURSOR_RIGHT</autogen>
+        <autogen>__KeyToKey__ KeyCode::F, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::PAGEDOWN</autogen>
+        <autogen>__KeyToKey__ KeyCode::B, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::PAGEUP</autogen>
+      </block>
+    </item>
+    <!--
+    <item>
+      <name>Safari: t 变成 ctrl-t (Twitter 分享，需要在系统偏好设置)</name>
+      <identifier>my.remap.Safari.hotKeys</identifier>
+      <block>
+        <only>Safari</only>
+        <uielementrole_only>AXWebArea, AXGroup</uielementrole_only>
+        <autogen>__KeyToKey__
+          KeyCode::T, ModifierFlag::NONE,
+          KeyCode::T, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L
+        </autogen>
+      </block>
+    </item>
+    -->
     <item>
       <name>官方中文输入法: 单击 Shift_L 触发 CapsLock - 中英文切换</name>
       <inputsource_only>CHINESE_SIMPLIFIED</inputsource_only>
