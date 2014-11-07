@@ -51,14 +51,17 @@ findFloraPac() {
 }
 
 genpac() {
-    findFloraPac
-    "$RUN_FLORA_PAC" --config pac-config.ini \
-        --file "$2" \
-        --proxy "SOCKS5 $1; SOCKS $1"
+    local proxy="$1"
+    local file="$2"
+    if echo "$proxy" | grep -qv "^HTTP " ; then
+        proxy="SOCKS5 $proxy; SOCKS $proxy"
+    fi
 
+    findFloraPac
+    "$RUN_FLORA_PAC" --config pac-config.ini --file "$file" --proxy "$proxy"
 }
 
-if [ "$1" == "bvm" ]; then
+if [ "$1" == "bvm" ] || [ "$1" == "all" ] ; then
     # for bvm config - schedule at 14:10 every monday
     # 10 14 * * 1 nohup /home/solocompany/pac/autopac.sh bvm
     cd /home/solocompany/
@@ -66,8 +69,10 @@ if [ "$1" == "bvm" ]; then
     cd pac/
     echo "Downloading $APNIC_STATS..."
     curl --fail "$APNIC_STATS" -O || exit
-    genpac "$PROXY_AZURE" /var/www/html/proxy_azure.pac
-    genpac "$PROXY_BVM25" /var/www/html/proxy_bvm25.pac
+    genpac "$PROXY_AZURE"           /var/www/html/proxy_azure.pac
+    genpac "$PROXY_BVM25"           /var/www/html/proxy_bvm25.pac
+    genpac "$PROXY_LOCAL"           /var/www/html/proxy_local.pac
+    genpac "HTTP 127.0.0.1:8000"    /var/www/html/proxy_local_http.pac
 elif [ "$1" == "mt" ]; then
     # for 92.rd.mt config - schedule at 14:10 every monday
     # 10 14 * * 1 nohup /home/william/pac/autopac.sh mt
