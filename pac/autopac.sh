@@ -81,7 +81,7 @@ elif [ "$1" == "mt" ]; then
     svn up pac; npm update flora-pac
     cd pac/
     echo "Downloading $APNIC_STATS..."
-    curl --fail "$APNIC_STATS" -O || exit
+    curl --fail --socks5-hostname "rd.mailtech.cn:7070" "$APNIC_STATS" -O || exit
     genpac "rd.mailtech.cn:7070"      /home/release/web/proxy.pac
     genpac "HTTP rd.mailtech.cn:8000" /home/release/web/proxy_http.pac
     rm -rf delegated-apnic-latest
