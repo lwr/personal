@@ -52,10 +52,12 @@ findFloraPac() {
 
 genpac() {
     local type="$1"
-    local proxy="$2"
+    local host="$2"
     local file="$3"
     if [ "$type" == "SOCKS5" ] ; then
-        proxy="SOCKS5 $proxy; SOCKS $proxy"
+        local proxy="SOCKS5 $host; SOCKS $host"
+    else
+        local proxy="PROXY $host"
     fi
 
     findFloraPac
