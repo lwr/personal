@@ -51,9 +51,10 @@ findFloraPac() {
 }
 
 genpac() {
-    local proxy="$1"
-    local file="$2"
-    if echo "$proxy" | grep -qv "^HTTP " ; then
+    local type="$1"
+    local proxy="$2"
+    local file="$3"
+    if [ "$type" == "SOCKS5" ] ; then
         proxy="SOCKS5 $proxy; SOCKS $proxy"
     fi
 
@@ -69,10 +70,10 @@ if [ "$1" == "bvm" ] || [ "$1" == "all" ] ; then
     cd pac/
     echo "Downloading $APNIC_STATS..."
     curl --fail "$APNIC_STATS" -O || exit
-    genpac "$PROXY_AZURE"           /var/www/html/proxy_azure.pac
-    genpac "$PROXY_BVM25"           /var/www/html/proxy_bvm25.pac
-    genpac "$PROXY_LOCAL"           /var/www/html/proxy_local.pac
-    genpac "HTTP 127.0.0.1:8000"    /var/www/html/proxy_local_http.pac
+    genpac SOCKS5 "$PROXY_AZURE"           /var/www/html/proxy_azure.pac
+    genpac SOCKS5 "$PROXY_BVM25"           /var/www/html/proxy_bvm25.pac
+    genpac SOCKS5 "$PROXY_LOCAL"           /var/www/html/proxy_local.pac
+    genpac ""    "127.0.0.1:8000"          /var/www/html/proxy_local_http.pac
     rm -rf delegated-apnic-latest
 elif [ "$1" == "mt" ]; then
     # for 92.rd.mt config - schedule at 14:10 every monday
@@ -82,13 +83,13 @@ elif [ "$1" == "mt" ]; then
     cd pac/
     echo "Downloading $APNIC_STATS..."
     curl --fail --socks5-hostname "rd.mailtech.cn:7070" "$APNIC_STATS" -O || exit
-    genpac "rd.mailtech.cn:7070"      /home/release/web/proxy.pac
-    genpac "HTTP rd.mailtech.cn:8000" /home/release/web/proxy_http.pac
+    genpac SOCKS5 "rd.mailtech.cn:7070"    /home/release/web/proxy.pac
+    genpac ""     "rd.mailtech.cn:8000"    /home/release/web/proxy_http.pac
     rm -rf delegated-apnic-latest
 else
     # for local mac config - schedule at 14:10 every monday
     # 10 14 * * 1 nohup $HOME/MyWORK/personal/pac/autopac.sh
-    genpac "$PROXY_LOCAL" proxy.pac
+    genpac SOCKS5 "$PROXY_LOCAL" proxy.pac
 fi
 
 rm -f /tmp/gfwlist.txt
