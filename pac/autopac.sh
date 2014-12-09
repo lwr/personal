@@ -73,13 +73,18 @@ if [ "$1" == "bvm" ] || [ "$1" == "all" ] ; then
     genpac "$PROXY_BVM25"           /var/www/html/proxy_bvm25.pac
     genpac "$PROXY_LOCAL"           /var/www/html/proxy_local.pac
     genpac "HTTP 127.0.0.1:8000"    /var/www/html/proxy_local_http.pac
+    rm -rf delegated-apnic-latest
 elif [ "$1" == "mt" ]; then
     # for 92.rd.mt config - schedule at 14:10 every monday
     # 10 14 * * 1 nohup /home/william/pac/autopac.sh mt
     cd /home/william
     svn up pac; npm update flora-pac
+    cd pac/
+    echo "Downloading $APNIC_STATS..."
+    curl --fail "$APNIC_STATS" -O || exit
     genpac "rd.mailtech.cn:7070"      /home/release/web/proxy.pac
     genpac "HTTP rd.mailtech.cn:8000" /home/release/web/proxy_http.pac
+    rm -rf delegated-apnic-latest
 else
     # for local mac config - schedule at 14:10 every monday
     # 10 14 * * 1 nohup $HOME/MyWORK/personal/pac/autopac.sh
