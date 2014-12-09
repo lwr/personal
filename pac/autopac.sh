@@ -78,7 +78,8 @@ elif [ "$1" == "mt" ]; then
     # 10 14 * * 1 nohup /home/william/pac/autopac.sh mt
     cd /home/william
     svn up pac; npm update flora-pac
-    genpac "92.rd.mt:7070" /home/release/web/proxy.pac
+    genpac "rd.mailtech.cn:7070"      /home/release/web/proxy.pac
+    genpac "HTTP rd.mailtech.cn:8000" /home/release/web/proxy_http.pac
 else
     # for local mac config - schedule at 14:10 every monday
     # 10 14 * * 1 nohup $HOME/MyWORK/personal/pac/autopac.sh
