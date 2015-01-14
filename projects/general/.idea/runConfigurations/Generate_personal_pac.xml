@@ -4,10 +4,10 @@
     <option name="INTERPRETER_PATH" value="/bin/bash" />
     <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../pac" />
     <option name="PARENT_ENVS" value="true" />
-    <envs />
-    <module name="personal" />
     <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../pac/autopac.sh" />
     <option name="PARAMETERS" value="" />
+    <module name="personal" />
+    <envs />
     <RunnerSettings RunnerId="JProfiler">
       <option name="WINDOW" value="false" />
     </RunnerSettings>
