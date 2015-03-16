@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="VcsDirectoryMappings">
+    <mapping directory="$USER_HOME$" vcs="svn" />
     <mapping directory="$PROJECT_DIR$/../../../FloraPacNJS" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../../../lwr.github.io" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../../../lwr.github.io/_theme_packages/mark-reid" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../.." vcs="Git" />
   </component>
 </project>
-
