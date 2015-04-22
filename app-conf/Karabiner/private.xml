@@ -54,6 +54,18 @@
   <item>
     <name>自定义</name>
     <item>
+      <name>IDEA: 带 ALT (OPT) 的热键不支持 Java 7+，需手动映射</name>
+      <appendix>- Column Mode: [ OPTION + C ] to [ CMD + SHIFT + C ]</appendix>
+      <identifier>my.remap.JetBrains.hotKeys</identifier>
+      <block>
+        <only>IDEA</only>
+        <autogen>__KeyToKey__
+          KeyCode::C, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION,
+          KeyCode::C, ModifierFlag::COMMAND_L, ModifierFlag::SHIFT_L
+        </autogen>
+      </block>
+    </item>
+    <item>
       <name>TweetBot: [H ←], [L →], [空格或 I 查看媒体内容]</name>
       <identifier>my.remap.TweetBot.hotKeys</identifier>
       <block>
@@ -120,11 +132,11 @@
     </item>
     <item>
       <name>使用 Option_R 触发功能键: 亮度调节 / 音量调节 / 音乐播放 / 方向键</name>
-      <appendix>● A, S, D, F ○ to ○ Volume Dow, Up, Mute, Eject (仿 HHKB)</appendix>
-      <appendix>● 1, 2, 4 ● to ● Brightness Down, Brightness Up, LaunchPad</appendix>
-      <appendix>● 7, 8, 9 ● to ● Music Prev, Music Play/Pause, Music Next</appendix>
-      <appendix>● 『;』, 『/』, 『'』，『[』 ● to ● Arrow Left, Down, Right, Up</appendix>
-      <appendix>● =/F12 ● to ● PrintScreen</appendix>
+      <appendix>- [ A, S, D, F ] to [ Volume Dow, Up, Mute, Eject (仿 HHKB) ]</appendix>
+      <appendix>- [ 1, 2, 4 ] to [ Brightness Down, Brightness Up, LaunchPad ]</appendix>
+      <appendix>- [ 7, 8, 9 ] to [ Music Prev, Music Play/Pause, Music Next ]</appendix>
+      <appendix>- [『;』, 『/』, 『'』，『[』] to [ Arrow Left, Down, Right, Up ]</appendix>
+      <appendix>- [ =/F12 ] to [ PrintScreen ]</appendix>
       <identifier>my.remap.optionR_FUNCTIONAL</identifier>
       <autogen>__KeyToKey__ KeyCode::A,             ModifierFlag::OPTION_R, ConsumerKeyCode::VOLUME_DOWN</autogen>
       <autogen>__KeyToKey__ KeyCode::S,             ModifierFlag::OPTION_R, ConsumerKeyCode::VOLUME_UP</autogen>

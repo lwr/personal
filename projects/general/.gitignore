@@ -4,6 +4,7 @@
 
 # IDEA Project Files
 /.idea/copyright
+/.idea/atlassian-ide-plugin.xml
 /.idea/checkstyle-idea.xml
 /.idea/compiler.xml
 /.idea/misc.xml
