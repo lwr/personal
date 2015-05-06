@@ -180,7 +180,7 @@
         </autogen>
       </block>
       <block>
-        <only>Mail</only>
+        <not>Safari</not>
         <autogen>__KeyToKey__
           KeyCode::DELETE,    MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT,
           KeyCode::DELETE,    ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L
