@@ -140,29 +140,29 @@
       </autogen>
     </item>
     <item>
-      <name>使用 Option_R 触发功能键: 亮度调节 / 音量调节 / 音乐播放 / 方向键</name>
+      <name>使用右 Command 键触发功能: 亮度调节 / 音量调节 / 音乐播放 / 方向键</name>
       <appendix>- [ A, S, D, F ] to [ Volume Dow, Up, Mute, Eject (仿 HHKB) ]</appendix>
       <appendix>- [ 1, 2, 4 ] to [ Brightness Down, Brightness Up, LaunchPad ]</appendix>
       <appendix>- [ 7, 8, 9 ] to [ Music Prev, Music Play/Pause, Music Next ]</appendix>
       <appendix>- [『;』, 『/』, 『'』，『[』] to [ Arrow Left, Down, Right, Up ]</appendix>
       <appendix>- [ =/F12 ] to [ PrintScreen ]</appendix>
-      <identifier>my.remap.optionR_FUNCTIONAL</identifier>
-      <autogen>__KeyToKey__ KeyCode::A,             ModifierFlag::OPTION_R, ConsumerKeyCode::VOLUME_DOWN</autogen>
-      <autogen>__KeyToKey__ KeyCode::S,             ModifierFlag::OPTION_R, ConsumerKeyCode::VOLUME_UP</autogen>
-      <autogen>__KeyToKey__ KeyCode::D,             ModifierFlag::OPTION_R, ConsumerKeyCode::VOLUME_MUTE</autogen>
-      <autogen>__KeyToKey__ KeyCode::F,             ModifierFlag::OPTION_R, ConsumerKeyCode::EJECT</autogen>
-      <autogen>__KeyToKey__ KeyCode::SEMICOLON,     ModifierFlag::OPTION_R, KeyCode::CURSOR_LEFT</autogen>
-      <autogen>__KeyToKey__ KeyCode::QUOTE,         ModifierFlag::OPTION_R, KeyCode::CURSOR_RIGHT</autogen>
-      <autogen>__KeyToKey__ KeyCode::BRACKET_LEFT,  ModifierFlag::OPTION_R, KeyCode::CURSOR_UP</autogen>
-      <autogen>__KeyToKey__ KeyCode::SLASH,         ModifierFlag::OPTION_R, KeyCode::CURSOR_DOWN</autogen>
-      <autogen>__KeyToKey__ KeyCode::KEY_1,         ModifierFlag::OPTION_R, ConsumerKeyCode::BRIGHTNESS_DOWN</autogen>
-      <autogen>__KeyToKey__ KeyCode::KEY_2,         ModifierFlag::OPTION_R, ConsumerKeyCode::BRIGHTNESS_UP</autogen>
-      <autogen>__KeyToKey__ KeyCode::KEY_4,         ModifierFlag::OPTION_R, KeyCode::LAUNCHPAD</autogen>
-      <autogen>__KeyToKey__ KeyCode::KEY_7,         ModifierFlag::OPTION_R, ConsumerKeyCode::MUSIC_PREV</autogen>
-      <autogen>__KeyToKey__ KeyCode::KEY_8,         ModifierFlag::OPTION_R, ConsumerKeyCode::MUSIC_PLAY</autogen>
-      <autogen>__KeyToKey__ KeyCode::KEY_9,         ModifierFlag::OPTION_R, ConsumerKeyCode::MUSIC_NEXT</autogen>
-      <autogen>__KeyToKey__ KeyCode::EQUAL,         ModifierFlag::OPTION_R, KeyCode::PC_PRINTSCREEN</autogen>
-      <autogen>__KeyToKey__ KeyCode::F12,           ModifierFlag::OPTION_R, KeyCode::PC_PRINTSCREEN</autogen>
+      <identifier>my.remap.ModifierR_FUNCTIONAL</identifier>
+      <autogen>__KeyToKey__ KeyCode::A,             ModifierFlag::COMMAND_R, ConsumerKeyCode::VOLUME_DOWN</autogen>
+      <autogen>__KeyToKey__ KeyCode::S,             ModifierFlag::COMMAND_R, ConsumerKeyCode::VOLUME_UP</autogen>
+      <autogen>__KeyToKey__ KeyCode::D,             ModifierFlag::COMMAND_R, ConsumerKeyCode::VOLUME_MUTE</autogen>
+      <autogen>__KeyToKey__ KeyCode::F,             ModifierFlag::COMMAND_R, ConsumerKeyCode::EJECT</autogen>
+      <autogen>__KeyToKey__ KeyCode::SEMICOLON,     ModifierFlag::COMMAND_R, KeyCode::CURSOR_LEFT</autogen>
+      <autogen>__KeyToKey__ KeyCode::QUOTE,         ModifierFlag::COMMAND_R, KeyCode::CURSOR_RIGHT</autogen>
+      <autogen>__KeyToKey__ KeyCode::BRACKET_LEFT,  ModifierFlag::COMMAND_R, KeyCode::CURSOR_UP</autogen>
+      <autogen>__KeyToKey__ KeyCode::SLASH,         ModifierFlag::COMMAND_R, KeyCode::CURSOR_DOWN</autogen>
+      <autogen>__KeyToKey__ KeyCode::KEY_1,         ModifierFlag::COMMAND_R, ConsumerKeyCode::BRIGHTNESS_DOWN</autogen>
+      <autogen>__KeyToKey__ KeyCode::KEY_2,         ModifierFlag::COMMAND_R, ConsumerKeyCode::BRIGHTNESS_UP</autogen>
+      <autogen>__KeyToKey__ KeyCode::KEY_4,         ModifierFlag::COMMAND_R, KeyCode::LAUNCHPAD</autogen>
+      <autogen>__KeyToKey__ KeyCode::KEY_7,         ModifierFlag::COMMAND_R, ConsumerKeyCode::MUSIC_PREV</autogen>
+      <autogen>__KeyToKey__ KeyCode::KEY_8,         ModifierFlag::COMMAND_R, ConsumerKeyCode::MUSIC_PLAY</autogen>
+      <autogen>__KeyToKey__ KeyCode::KEY_9,         ModifierFlag::COMMAND_R, ConsumerKeyCode::MUSIC_NEXT</autogen>
+      <autogen>__KeyToKey__ KeyCode::EQUAL,         ModifierFlag::COMMAND_R, KeyCode::PC_PRINTSCREEN</autogen>
+      <autogen>__KeyToKey__ KeyCode::F12,           ModifierFlag::COMMAND_R, KeyCode::PC_PRINTSCREEN</autogen>
     </item>
     <item>
       <name>交换 Backspace 和 Backslash '\' (仿 HHKB)</name>
@@ -209,18 +209,6 @@
       <autogen>__KeyToKey__
         KeyCode::ESCAPE, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT | ModifierFlag::NONE,
         KeyCode::BACKQUOTE, ModifierFlag::SHIFT_L
-      </autogen>
-    </item>
-
-    <item>
-      <name>Change input source to Unicode Hex Input while you are holding down right command key.</name>
-      <identifier>my.remap.change_input_source_temporary_unicode_hex_input_command_r</identifier>
-      <autogen>
-        __KeyToKey__
-        KeyCode::COMMAND_R,
-        KeyCode::OPTION_L,
-        Option::KEYTOKEY_BEFORE_KEYDOWN, KeyCode::VK_CHANGE_INPUTSOURCE_UNICODEHEXINPUT, KeyCode::VK_WAIT_100MS,
-        Option::KEYTOKEY_AFTER_KEYUP, KeyCode::SPACE, ModifierFlag::COMMAND_L, KeyCode::VK_WAIT_100MS,
       </autogen>
     </item>
   </item>
