@@ -6,6 +6,7 @@ GFWLIST=https://autoproxy-gfwlist.googlecode.com/svn/trunk/gfwlist.txt
 PROXY_LOCAL=127.0.0.1:7070
 PROXY_AZURE=solocompany.chinacloudapp.cn:4956
 PROXY_BVM25=ss.solocompany.net:25
+PROXY_SGP25=sgp.shabi.be:25
 
 cd `dirname "${BASH_SOURCE[0]}"`
 
@@ -74,6 +75,7 @@ if [ "$1" == "bvm" ] || [ "$1" == "all" ] ; then
     curl --fail "$APNIC_STATS" -O || exit
     genpac SOCKS5 "$PROXY_AZURE"           /var/www/html/proxy_azure.pac
     genpac SOCKS5 "$PROXY_BVM25"           /var/www/html/proxy_bvm25.pac
+    genpac SOCKS5 "$PROXY_SGP25"           /var/www/html/PROXY_sgp25.pac
     genpac SOCKS5 "$PROXY_LOCAL"           /var/www/html/proxy_local.pac
     genpac ""    "127.0.0.1:8000"          /var/www/html/proxy_local_http.pac
     rm -rf delegated-apnic-latest
