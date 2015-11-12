@@ -70,7 +70,7 @@ if [ "$1" == "bvm" ] || [ "$1" == "all" ] ; then
     cd pac/
     echo "Downloading $APNIC_STATS..."
     curl --fail "$APNIC_STATS" -O || exit
-    genpac SOCKS5 "lotus-kh.solocompany.net:25"     /var/www/html/proxy_lotus_hk.pac
+    genpac SOCKS5 "lotus-hk.solocompany.net:25"     /var/www/html/proxy_lotus_hk.pac
     genpac SOCKS5       "ss.solocompany.net:25"     /var/www/html/proxy_bvm25.pac
     genpac SOCKS5 "$PROXY_LOCAL"                    /var/www/html/proxy_local.pac
     genpac ""     "127.0.0.1:8000"                  /var/www/html/proxy_local_http.pac
