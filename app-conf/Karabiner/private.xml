@@ -75,7 +75,7 @@
       </block>
     </item>
     <item>
-      <name>TweetBot: [H ←], [L →], [空格或 I 查看媒体内容]</name>
+      <name>TweetBot: [←H ↓J K↑ L→], [空格或 I 查看媒体内容]</name>
       <identifier>my.remap.TweetBot.hotKeys</identifier>
       <block>
         <only>TweetBot</only>
@@ -84,7 +84,10 @@
         -->
         <uielementrole_only>AXTable, AXWindow, AXScrollArea</uielementrole_only>
         <autogen>__KeyToKey__ KeyCode::H, ModifierFlag::NONE, KeyCode::CURSOR_LEFT</autogen>
-        <autogen>__KeyToKey__ KeyCode::L, ModifierFlag::NONE, KeyCode::CURSOR_RIGHT</autogen>
+        <autogen>__KeyToKey__ KeyCode::J, ModifierFlag::NONE, KeyCode::CURSOR_DOWN</autogen>
+        <autogen>__KeyToKey__ KeyCode::K, ModifierFlag::NONE, KeyCode::CURSOR_UP</autogen>
+        <!-- Activity Tab 似乎有 bug 需要回车才能打开而右方向键不行 -->
+        <autogen>__KeyToKey__ KeyCode::L, ModifierFlag::NONE, KeyCode::CURSOR_RIGHT, KeyCode::RETURN</autogen>
         <autogen>__KeyToKey__ KeyCode::F, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::PAGEDOWN</autogen>
         <autogen>__KeyToKey__ KeyCode::B, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::PAGEUP</autogen>
         <autogen>__KeyToKey__
@@ -103,9 +106,9 @@
       <block>
         <only>Mail</only>
         <uielementrole_only>AXTable, AXScrollArea</uielementrole_only>
+        <autogen>__KeyToKey__ KeyCode::H, ModifierFlag::NONE, KeyCode::CURSOR_LEFT</autogen>
         <autogen>__KeyToKey__ KeyCode::J, ModifierFlag::NONE, KeyCode::CURSOR_DOWN</autogen>
         <autogen>__KeyToKey__ KeyCode::K, ModifierFlag::NONE, KeyCode::CURSOR_UP</autogen>
-        <autogen>__KeyToKey__ KeyCode::H, ModifierFlag::NONE, KeyCode::CURSOR_LEFT</autogen>
         <autogen>__KeyToKey__ KeyCode::L, ModifierFlag::NONE, KeyCode::CURSOR_RIGHT</autogen>
         <autogen>__KeyToKey__ KeyCode::F, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::PAGEDOWN</autogen>
         <autogen>__KeyToKey__ KeyCode::B, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL, KeyCode::PAGEUP</autogen>
