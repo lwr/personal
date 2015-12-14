@@ -52,6 +52,15 @@
     <equal>com.apple.mail</equal>
   </appdef>
 
+  <windownamedef>
+    <name>NO_NAME</name>
+    <regex>^$</regex>
+  </windownamedef>
+  <windownamedef>
+    <name>Main Window</name>
+    <regex>^Main Window$</regex>
+  </windownamedef>
+
   <replacementdef>
     <replacementname>VIM_EMU_ONLY_APPS</replacementname>
     <replacementvalue/>
@@ -79,6 +88,7 @@
       <identifier>my.remap.TweetBot.hotKeys</identifier>
       <block>
         <only>TweetBot</only>
+        <windowname_only>Main Window</windowname_only>
         <!--
         <uielementrole_not>AXTextArea, AXTextField, AXCheckBox, AXComboBox</uielementrole_not>
         -->
@@ -98,6 +108,12 @@
           KeyCode::SPACE, ModifierFlag::NONE,
           KeyCode::L, ModifierFlag::COMMAND_L, ModifierFlag::SHIFT_L
         </autogen>
+      </block>
+      <block>
+        <only>TweetBot</only>
+        <windowname_only>NO_NAME</windowname_only>
+        <uielementrole_only>AXWindow</uielementrole_only>
+        <autogen>__KeyToKey__ KeyCode::SPACE, ModifierFlag::NONE, KeyCode::ESCAPE</autogen>
       </block>
     </item>
     <item>
