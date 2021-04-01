@@ -5,9 +5,9 @@ GFWLIST=https://autoproxy-gfwlist.googlecode.com/svn/trunk/gfwlist.txt
 
 PROXY_LOCAL=127.0.0.1:7070
 
-cd `dirname "${BASH_SOURCE[0]}"`
+cd "$(dirname "${BASH_SOURCE[0]}")" || exit
 
-PATH=/opt/local/bin/:/usr/local/bin:/usr/bin:/bin
+PATH=/opt/homebrew/bin:/opt/local/bin:/usr/local/bin:/usr/bin:/bin
 
 genpacForGfwlist() {
     if ! [ -f /tmp/gfwlist.txt ]; then
@@ -25,7 +25,7 @@ genpacForGfwlist() {
 RUN_FLORA_PAC=
 findFloraPac() {
     if [ -z "$RUN_FLORA_PAC" ]; then
-        RUN_FLORA_PAC=`which flora-pac`
+        RUN_FLORA_PAC=$(which flora-pac)
         local p
         for p in \
             "$HOME"/MyWORK/FloraPacNJS \
@@ -36,6 +36,9 @@ findFloraPac() {
             ; do
             if [ -d "$p" ]; then
                 RUN_FLORA_PAC="$p/index.js"
+                if echo "$p" | grep -q MyWORK ; then
+                    pushd "$p" && npm install && popd || exit
+                fi
                 break;
             fi
         done
@@ -65,9 +68,9 @@ genpac() {
 if [ "$1" == "bvm" ] || [ "$1" == "all" ] ; then
     # for bvm config - schedule at 14:10 every monday
     # 10 14 * * 1 nohup /home/solocompany/pac/autopac.sh bvm
-    cd /home/solocompany/
+    cd /home/solocompany/ || exit
     svn up pac; npm update flora-pac
-    cd pac/
+    cd pac/ || exit
     echo "Downloading $APNIC_STATS..."
     curl --fail "$APNIC_STATS" -O || exit
     rm -f                                           /var/www/html/proxy_lotus_hk.pac
@@ -79,9 +82,9 @@ if [ "$1" == "bvm" ] || [ "$1" == "all" ] ; then
 elif [ "$1" == "mt" ]; then
     # for 92.rd.mt config - schedule at 14:10 every monday
     # 10 14 * * 1 nohup /home/william/pac/autopac.sh mt
-    cd /home/william
+    cd /home/william || exit
     svn up pac; npm update flora-pac
-    cd pac/
+    cd pac/ || exit
     echo "Downloading $APNIC_STATS..."
     curl --fail --socks5-hostname "rd.mailtech.cn:7070" "$APNIC_STATS" -O || exit
     genpac SOCKS5 "rd.mailtech.cn:7070"    /home/release/web/proxy.pac
@@ -90,7 +93,10 @@ elif [ "$1" == "mt" ]; then
 else
     # for local mac config - schedule at 14:10 every monday
     # 10 14 * * 1 nohup $HOME/MyWORK/personal/pac/autopac.sh
+    echo "Downloading $APNIC_STATS..."
+    curl --fail --socks5-hostname "$PROXY_LOCAL" "$APNIC_STATS" -O || exit
     genpac SOCKS5 "$PROXY_LOCAL" proxy.pac
+    rm -rf delegated-apnic-latest
 fi
 
 rm -f /tmp/gfwlist.txt
